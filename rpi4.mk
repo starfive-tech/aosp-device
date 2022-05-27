@@ -27,10 +27,11 @@ PRODUCT_MODEL := Raspberry Pi 4
 include frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.drm.mode.force=1280x720 \
+    debug.drm.mode.force=720x480 \
     gralloc.drm.kms=/dev/dri/card0 \
-    ro.opengles.version=196609 \
-    ro.hardware.vulkan=broadcom \
+    ro.opengles.version=131072 \
+    ro.hardware.egl=swiftshader \
+    debug.sf.nobootanimation=1 \
     wifi.interface=wlan0 \
     ro.rfkilldisabled=1
 
@@ -45,8 +46,6 @@ PRODUCT_PACKAGES += \
 
 # system packages
 PRODUCT_PACKAGES += \
-    gralloc.rpi4 \
-    vulkan.broadcom \
     memtrack.rpi4 \
     audio.primary.rpi4 \
     audio.usb.default \
@@ -61,18 +60,17 @@ PRODUCT_PACKAGES += \
 
 # graphics hal
 PRODUCT_PACKAGES += \
-    libEGL_mesa \
-    libGLESv1_CM_mesa \
-    libGLESv2_mesa \
-    libgallium_dri \
-    libglapi
+    libEGL_swiftshader \
+    libGLESv1_CM_swiftshader \
+    libGLESv2_swiftshader
+
+PRODUCT_REQUIRES_INSECURE_EXECMEM_FOR_SWIFTSHADER := true
 
 # hardware/interfaces
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service.rpi4 \
     android.hardware.graphics.mapper@2.0-impl.rpi4 \
     android.hardware.graphics.composer@2.1-service.rpi4 \
-    android.hardware.camera.provider@2.5-external-service \
     android.hardware.audio@4.0-impl \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.audio.service \
@@ -94,16 +92,12 @@ PRODUCT_PACKAGES += \
 # system configurations
 PRODUCT_COPY_FILES := \
     hardware/broadcom/wlan/bcmdhd/config/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
-    frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.hdmi.cec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.hdmi.cec.xml \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
-    frameworks/native/data/etc/android.hardware.camera.external.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.external.xml \
-    $(LOCAL_PATH)/external_camera_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/external_camera_config.xml \
     $(LOCAL_PATH)/init.usb.rc:root/init.usb.rc \
     $(LOCAL_PATH)/init.rpi4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rpi4.rc \
     $(LOCAL_PATH)/init.rpi4.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rpi4.usb.rc \
@@ -146,7 +140,7 @@ PRODUCT_COPY_FILES := \
     frameworks/base/data/sounds/effects/ogg/camera_click_48k.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ui/camera_click.ogg \
     $(PRODUCT_COPY_FILES)
 
-PRODUCT_AAPT_PREF_CONFIG := tvdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_CHARACTERISTICS := tv
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
