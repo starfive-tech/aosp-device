@@ -31,9 +31,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     gralloc.drm.kms=/dev/dri/card0 \
     ro.opengles.version=131072 \
     ro.hardware.egl=swiftshader \
-    debug.sf.nobootanimation=1 \
-    wifi.interface=wlan0 \
-    ro.rfkilldisabled=1
+    debug.sf.nobootanimation=1
 
 # application packages
 PRODUCT_PACKAGES += \
@@ -48,15 +46,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     memtrack.rpi4 \
     audio.primary.rpi4 \
-    audio.usb.default \
-    audio.a2dp.default \
-    audio.r_submix.default \
-    wificond \
-    wifilogd \
-    wpa_supplicant \
-    wpa_supplicant.conf \
-    hostapd \
-    libbt-vendor
+    audio.usb.default
 
 # graphics hal
 PRODUCT_PACKAGES += \
@@ -82,22 +72,15 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service \
     android.hardware.health@2.1-impl \
     android.hardware.health.storage@1.0-service \
-    android.hardware.wifi@1.0-service \
-    android.hardware.bluetooth@1.0-service \
-    android.hardware.bluetooth@1.0-impl \
     android.hardware.configstore@1.1-service \
     android.hardware.tv.cec@1.0-service.mock \
     vndservicemanager
 
 # system configurations
 PRODUCT_COPY_FILES := \
-    hardware/broadcom/wlan/bcmdhd/config/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.hdmi.cec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.hdmi.cec.xml \
-    frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
     $(LOCAL_PATH)/init.usb.rc:root/init.usb.rc \
     $(LOCAL_PATH)/init.rpi4.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rpi4.rc \
     $(LOCAL_PATH)/init.rpi4.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.rpi4.usb.rc \
@@ -105,21 +88,6 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/fstab.rpi4:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.rpi4 \
     $(LOCAL_PATH)/fstab.rpi4:$(TARGET_COPY_OUT_RAMDISK)/fstab.rpi4 \
     $(LOCAL_PATH)/Generic.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/Generic.kl \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43455-sdio.bin:root/lib/firmware/brcm/brcmfmac43455-sdio.bin \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43455-sdio.bin:$(TARGET_COPY_OUT_RAMDISK)/lib/firmware/brcm/brcmfmac43455-sdio.bin \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43455-sdio.clm_blob:root/lib/firmware/brcm/brcmfmac43455-sdio.clm_blob \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43455-sdio.clm_blob:$(TARGET_COPY_OUT_RAMDISK)/lib/firmware/brcm/brcmfmac43455-sdio.clm_blob \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43455-sdio.txt:root/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43455-sdio.txt:$(TARGET_COPY_OUT_RAMDISK)/lib/firmware/brcm/brcmfmac43455-sdio.raspberrypi,4-model-b.txt \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43456-sdio.bin:root/lib/firmware/brcm/brcmfmac43456-sdio.bin \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43456-sdio.bin:$(TARGET_COPY_OUT_RAMDISK)/lib/firmware/brcm/brcmfmac43456-sdio.bin \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43456-sdio.clm_blob:root/lib/firmware/brcm/brcmfmac43456-sdio.clm_blob \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43456-sdio.clm_blob:$(TARGET_COPY_OUT_RAMDISK)/lib/firmware/brcm/brcmfmac43456-sdio.clm_blob \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43456-sdio.txt:root/lib/firmware/brcm/brcmfmac43456-sdio.raspberrypi,400.txt \
-    $(LOCAL_PATH)/firmware/brcm/brcmfmac43456-sdio.txt:$(TARGET_COPY_OUT_RAMDISK)/lib/firmware/brcm/brcmfmac43456-sdio.raspberrypi,400.txt \
-    $(LOCAL_PATH)/firmware/brcm/BCM4345C0.hcd:root/lib/firmware/brcm/BCM4345C0.hcd \
-    $(LOCAL_PATH)/firmware/brcm/BCM4345C5.hcd:root/lib/firmware/brcm/BCM4345C5.hcd \
-    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
     $(PRODUCT_COPY_FILES)
 
 # media configurations
