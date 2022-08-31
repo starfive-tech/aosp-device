@@ -8,6 +8,8 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
+    export LIBGL_ALWAYS_SOFTWARE 1
+
 on fs
     mount_all /vendor/etc/fstab.jh7100
 

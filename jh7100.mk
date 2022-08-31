@@ -27,11 +27,9 @@ PRODUCT_MODEL := Android on RISC-V
 include frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.drm.mode.force=720x480 \
+    debug.drm.mode.force=640x480 \
     gralloc.drm.kms=/dev/dri/card0 \
-    ro.opengles.version=131072 \
-    ro.hardware.egl=swiftshader \
-    debug.sf.nobootanimation=1
+    ro.opengles.version=131072
 
 # application packages
 PRODUCT_PACKAGES += \
@@ -50,11 +48,11 @@ PRODUCT_PACKAGES += \
 
 # graphics hal
 PRODUCT_PACKAGES += \
-    libEGL_swiftshader \
-    libGLESv1_CM_swiftshader \
-    libGLESv2_swiftshader
-
-PRODUCT_REQUIRES_INSECURE_EXECMEM_FOR_SWIFTSHADER := true
+    libEGL_mesa \
+    libGLESv1_CM_mesa \
+    libGLESv2_mesa \
+    libgallium_dri \
+    libglapi
 
 # hardware/interfaces
 PRODUCT_PACKAGES += \
