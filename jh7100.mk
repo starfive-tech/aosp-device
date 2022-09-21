@@ -71,6 +71,7 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service \
     android.hardware.health@2.1-impl \
     android.hardware.health.storage@1.0-service \
+    android.hardware.wifi@1.0-service \
     android.hardware.configstore@1.1-service \
     android.hardware.tv.cec@1.0-service.mock \
     vndservicemanager
@@ -80,6 +81,7 @@ PRODUCT_COPY_FILES := \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.hardware.hdmi.cec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.hdmi.cec.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     $(LOCAL_PATH)/init.usb.rc:root/init.usb.rc \
     $(LOCAL_PATH)/init.jh7100.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.jh7100.rc \
     $(LOCAL_PATH)/init.jh7100.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.jh7100.usb.rc \
