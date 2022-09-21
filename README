@@ -54,10 +54,3 @@
 
 # JH7100 hardware information:
   https://rvspace.org
-
-
-# Manually enable ethernet while zygote is not working,
-  on uart console:
-   console:/ $ su
-   console:/ # ifconfig eth0 up <addr> netmask <netmask>
-   console:/ # ip rule add from all lookup main pref 1
