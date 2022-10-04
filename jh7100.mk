@@ -30,8 +30,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.drm.mode.force=640x480 \
     gralloc.drm.kms=/dev/dri/card0 \
     ro.opengles.version=131072 \
-    debug.sf.nobootanimation=1 \
-    dalvik.vm.dex2oat64.enabled=true
+    debug.sf.nobootanimation=1
 
 # application packages
 PRODUCT_PACKAGES += \
