@@ -18,6 +18,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 USE_OEM_TV_APP := true
 $(call inherit-product, device/google/atv/products/atv_base.mk)
 
+PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+	system/lib64/libcompiler_rt.so
+
 PRODUCT_NAME := jh7100
 PRODUCT_DEVICE := jh7100
 PRODUCT_BRAND := Android
@@ -113,3 +116,7 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_CHARACTERISTICS := tv
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
+# FIXME libcompiler_rt can't be built automatically on riscv device. manual to build
+PRODUCT_PACKAGES += \
+	libcompiler_rt

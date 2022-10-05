@@ -11,10 +11,6 @@
   $ lunch jh7100-eng
   $ make ramdisk systemimage vendorimage
 
-  $ cp prebuilts/vndk/v28/riscv64/arch-riscv64-riscv64/shared/vndk-sp/libcompiler_rt.so out/target/product/jh7100/system/lib64/
-  $ rm -rf out/target/product/jh7100/obj/PACKAGING
-  $ make systemimage
-
 # Prepare sd card
  Partitions of the card should be set-up like followings
   p1:  128MB for /vendor   : do fdisk
