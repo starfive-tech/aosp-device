@@ -47,6 +47,7 @@
 
  Use -j[n] option for make command, if build host has a good number of CPU cores.
 
+ Connect USB keyboard before power-up the board, at least one input device should exist.
 
 # JH7100 hardware information:
   https://rvspace.org
