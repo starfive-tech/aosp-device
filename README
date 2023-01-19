@@ -2,7 +2,7 @@
   https://source.android.com/setup/build/initializing
 
 # Download Android source
-  https://github.com/android-risc-v/local_manifests
+  https://github.com/android-risc-v/local_manifests/tree/arv-master
 
 # Build Android
  Refer to http://source.android.com/source/building.html
