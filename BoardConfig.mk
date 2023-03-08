@@ -23,7 +23,9 @@ TARGET_ARCH_VARIANT := riscv64
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_ABI := riscv64
 
-TARGET_USES_64_BIT_BINDER := true
+TARGET_DYNAMIC_64_32_MEDIASERVER := true
+
+TARGET_FLATTEN_APEX := true
 
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 BOARD_VNDK_VERSION := current
@@ -55,6 +57,6 @@ TARGET_USES_HWC2 := true
 TARGET_SCREEN_DENSITY := 160
 
 BOARD_SEPOLICY_DIRS := \
-    device/arv/jh7100/sepolicy
+    device/arv/jh7110/sepolicy
 
-DEVICE_MANIFEST_FILE := device/arv/jh7100/manifest.xml
+DEVICE_MANIFEST_FILE := device/arv/jh7110/manifest.xml
