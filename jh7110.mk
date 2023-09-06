@@ -82,6 +82,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     android.hardware.configstore@1.1-service \
     android.hardware.tv.cec@1.0-service.mock \
+    hwservicemanager \
     vndservicemanager
 
 # system configurations
