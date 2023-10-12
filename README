@@ -2,7 +2,7 @@
   https://source.android.com/setup/build/initializing
 
 # Download Android source
-  https://github.com/android-risc-v/local_manifests
+  https://github.com/starfive-tech/starfive-manifests
 
 # Patch framework source :
   https://github.com/android-risc-v/device_arv_jh7110/wiki/arv-master-:-framework-patch
@@ -37,12 +37,14 @@
   $ sudo apt install gcc-riscv64-linux-gnu
 
  Git clone following kernel source under separate folder apart from Android
-  https://github.com/android-risc-v/kernel_arv
+  https://github.com/starfive-tech/aosp-linux
 
  Build the kernel
-  $ ARCH=riscv scripts/kconfig/merge_config.sh arch/riscv/configs/defconfig kernel/configs/android-base.config kernel/configs/android-recommended.config
-  $ ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- make Image.gz starfive/jh7110-starfive-visionfive-2-v1.2a.dtb
+  $ ARCH=riscv scripts/kconfig/merge_config.sh arch/riscv/configs/starfive_visionfive2_defconfig kernel/configs/android-base.config kernel/configs/android-recommended.config
+  $ ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- make Image.gz starfive/jh7110-visionfive-v2.dtb
 
+# Rename the DTB
+  $ mv <kernel directory>/arch/riscv/boot/dts/starfive/jh7110-visionfive-v2.dtb <kernel directory>/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb
 # Copy kernel binaries to boot partition
   <kernel directory>/arch/riscv/boot/Image.gz to p3:/
   <kernel directory>/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb to p3:/dtbs/starfive/
