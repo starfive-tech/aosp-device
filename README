@@ -8,7 +8,7 @@
   https://github.com/android-risc-v/device_arv_jh7110/wiki/arv-master-:-framework-patch
 
 # Build Android
- Refer to http://source.android.com/source/building.html
+ Refer to https://github.com/starfive-tech/aosp-manifests#readme
 
   $ source build/envsetup.sh
   $ lunch jh7110-eng
@@ -39,16 +39,16 @@
  Git clone following kernel source under separate folder apart from Android
   https://github.com/starfive-tech/aosp-linux
 
+ Checkout out to specific branch
+  $ git checkout -b jh7110-android14-6.1-lts -t origin/jh7110-android14-6.1-lts
+
  Build the kernel
   $ ARCH=riscv scripts/kconfig/merge_config.sh arch/riscv/configs/starfive_visionfive2_defconfig kernel/configs/android-base.config kernel/configs/android-recommended.config
   $ ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- make Image.gz starfive/jh7110-visionfive-v2.dtb
 
-# Rename the DTB
-  $ mv <kernel directory>/arch/riscv/boot/dts/starfive/jh7110-visionfive-v2.dtb <kernel directory>/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb
 # Copy kernel binaries to boot partition
   <kernel directory>/arch/riscv/boot/Image.gz to p3:/
-  <kernel directory>/arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.2a.dtb to p3:/dtbs/starfive/
-
+  <kernel directory>/arch/riscv/boot/dts/starfive/jh7110-visionfive-v2.dtb to p3:/dtbs/starfive/
 
  Use -j[n] option for make command, if build host has a good number of CPU cores.
 
